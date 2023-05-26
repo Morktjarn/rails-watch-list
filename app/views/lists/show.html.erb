@@ -7,8 +7,14 @@
     <li class="list-group-item">
       <p><%= movie.title %></p>
       <p><%= movie.overview %></p>
-      <p><%= movie.poster_url %></p>
-      <p><%= movie.rating %></p>
-  <% end %>
+      <p><%= image_tag movie.poster_url %></p>
+      <p>⭐️ <%= movie.rating %></p>
     </li>
+  <% end %>
+    <h2>Add a movie to the list</h2>
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie %>
+      <%= f.button :submit %>
+      <% end %>
 </ul>
