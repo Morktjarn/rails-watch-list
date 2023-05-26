@@ -1,0 +1,14 @@
+<%# <h1>Lists#show</h1> %>
+<%# <p>Find me in app/views/lists/show.html.erb</p> %>
+<h2><%= @list.name %></h2>
+<ul class="list-group">
+  <% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <li class="list-group-item">
+      <p><%= movie.title %></p>
+      <p><%= movie.overview %></p>
+      <p><%= movie.poster_url %></p>
+      <p><%= movie.rating %></p>
+  <% end %>
+    </li>
+</ul>
