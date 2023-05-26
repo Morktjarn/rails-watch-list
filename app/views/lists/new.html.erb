@@ -1,8 +1,9 @@
 <%# <h1>Lists#new</h1> %>
 <h1>Create new list</h1>
 <%# <p>Find me in app/views/lists/new.html.erb</p> %>
-<%= form_with model: @list do |f| %>
+<%= simple_form_for(@list) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>

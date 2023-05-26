@@ -1,6 +1,8 @@
 <%# <h1>Lists#show</h1> %>
 <%# <p>Find me in app/views/lists/show.html.erb</p> %>
 <h2><%= @list.name %></h2>
+<%= cl_image_tag @list.photo.key, width: 400, height: 300, crop: :fill %>
+
 <ul class="list-group">
   <% @list.movies.each do |movie| %>
   <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
